@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Video</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            let $ = function (id) {
+                return document.getElementById(id)
+            }
+            let video = $("video");
+
+            // let video1 = $("video1");
+            // let video2 = $("video2");
+            // let video3 = $("video3");
+
+
+            // $("video1").onclick = function (e) {
+            //     if (video1.paused) {
+            //         video1.play();
+            //         e.target.src = "img/icons8-pause.png";
+
+            //     } else {
+            //         video1.pause();
+            //         e.target.src = "img/icons8_play.png";
+            //     }
+            // };
+
+
+
+            let volplus = document.getElementById("volplus");
+            let volminus = document.getElementById("volminus");
+            volplus.addEventListener("click", function () {
+                video.volume += 0.2;
+            });
+
+            volminus.addEventListener("click", function () {
+                video.volume -= 0.2;
+            });
+
+            $("rewaindForward").onclick = function () {
+                video.currentTime += 10;
+            };
+
+            $("rewaindBack").onclick = function () {
+                video.currentTime -= 10;
+            };
+
+            $("stopButton").onclick = function () {
+                video.pause();
+                video.currentTime = 0;
+                $("playButton").src = "img/icons8_play.png";
+            };
+            $("fullButton").onclick = function () {
+                let elem = $("video");
+
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) {
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                }
+            };
+
+            $("playButton").onclick = function (e) {
+                if (video.paused) {
+                    video.play();
+                    e.target.src = "img/icons8-pause.png";
+
+                } else {
+                    video.pause();
+                    e.target.src = "img/icons8_play.png";
+                }
+            };
+            // $("video1").onclick = function (e) {
+            //     if (video1.paused) {
+            //         video1.play();
+            //         e.target.src = "img/icons8-pause.png";
+
+            //     } else {
+            //         video1.pause();
+            //         e.target.src = "img/icons8_play.png";
+            //     }
+            // };
+
+
+
+        }
+    </script>
+    <style>
+        img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            user-select: none;
+            text-align: center;
+            float: left;
+            margin-left: 5px;
+        }
+
+        a {
+            width: 40px;
+            height: 20px;
+            cursor: pointer;
+            user-select: none;
+            text-align: center;
+            float: right;
+            margin: 10px 10px 10px;
+            border-radius: 5px;
+            color: black;
+            text-decoration: none;
+            background: #0eeb2f;
+        }
+
+        img:hover {
+            transform: scale(1.2);
+        }
+
+        .player {
+            position: absolute;
+            top: 100px;
+            left: 320px;
+            width: auto;
+            height: auto;
+        }
+
+        #video {
+            height: 400px;
+            width: 710px;
+            border: 2px solid #070427;
+            position: relative;
+        }
+
+        #video::-webkit-media-controls {
+            display: none !important;
+        }
+
+        .controls {
+            position: relative;
+            top: -4px;
+            width: auto;
+            border: 2px solid #127274;
+            height: 40px;
+            background-color: #d6e5e5;
+        }
+
+        #fullButton {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="player">
+        <video id="video">
+            <source src="video/vsvideo.mp4" />
+            <source src="video/vsvideo.ogg" />
+            <source src="video/vsvideo.webm" />
+        </video>
+        <div class="contrls">
+            <div>
+                <img id="volplus" src="img/images.jpg">
+            </div>
+            <div>
+                <img id="volminus"
+                    src="img/kisspng-computer-icons-plus-and-minus-signs-clip-art-sign-up-button-5acceb629e08e4.2883842715233790426473.jpg">
+            </div>
+            <div>
+                <img id="playButton" src="img/icons8_play.png">
+            </div>
+            <div>
+                <img id="rewaindBack" src="img/icons8-prev.png">
+            </div>
+            <div>
+                <img id="rewaindForward" src="img/icons8-next.png">
+            </div>
+            <div>
+                <img id="stopButton" src="img/icons8-stop.png">
+            </div>
+
+            <div>
+                <img id="fullButton" src="img/icons8-full.png">
+            </div>
+            <div>
+                <a id="video2" href="https://youtu.be/stFOy0Noahg">видео</a>
+            </div>
+            <div>
+                <a id="video2" href="https://youtu.be/j_k6bk20aQ4">видео</a>
+            </div>
+            <div>
+                <a id="video2" href="https://youtu.be/vkq7ckCkvjY">видео</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

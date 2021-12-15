@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <input id="num1" />
+    <div id="operator_btns">
+        <button id="plus" onclick="operator='+'">+</button>
+        <button id="minus" onclick="operator='-'">-</button>
+        <button id="times" onclick="operator='*'">x</button>
+        <button id="divide" onclick="operator='/'">:</button>
+    </div>
+
+    <input id="num2" />
+    <br>
+
+    <button id="Btn" onclick="func()">Посчитать</button>
+
+    <p id="result"></p>
+
+    <script>
+        const $Btn = document.querySelector('#Btn')
+        let count = {};
+        let operator;
+
+        function func() {
+            let result;
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+            }
+
+            document.getElementById("result").innerHTML = result;
+        }
+
+        function usersListActually() {
+
+            user.count = countList
+
+            result.push(result)
+            let listJson = JSON.stringify(countList)
+            localStorage.setItem('', listJson)
+        }
+    </script>
+
+</body>
+
+</html>
